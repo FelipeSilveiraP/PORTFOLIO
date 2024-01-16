@@ -1,0 +1,293 @@
+/*****************************************************PARA TELAS MENORES EM GERAL********************************************************************/
+@media (max-width:1354.4px) and (min-width:435px)
+{
+
+ /****************************************************BOTAO DE ABRIR E FECHAR MENU************************************************************/
+  .Fechar-Menu {
+    position: fixed; 
+    z-index: 7;
+    top:0;
+    left:0;
+  }
+
+  .Fechar-Menu-label::after{
+    content: '☰';
+    position: fixed; 
+    z-index: 10;
+    top: 2rem;
+    right: 2rem;
+    background: var(--white-color);
+    color: aqua;
+
+    /*TAMANHO DO BOTÃO*/
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .Fechar-Menu:checked~.menu{display: block;}
+
+  .Fechar-Menu:checked~.Fechar-Menu-label::after {
+    display: block; 
+    content: '×';    
+    z-index: 10;
+    animation: rodando 0.4s ease-in-out alternate both;
+  }
+
+  @keyframes rodando {from{transform: rotate(360deg);}}
+
+/****************************************************MENU************************************************************/
+  .Indicator-Scroll{opacity: 0;}
+  .menu {
+    display: none;
+    bottom: 0;
+    padding-left:60%;
+    padding-right:0%;
+    background: none;
+    border-bottom: none;
+
+    animation: deslize 0.5s ease-in-out alternate both;
+  }
+
+  @keyframes deslize {from{transform: translateX(300px);}}
+
+  .menu-content, .menu-content ul, .MEU-ICONE {
+    display: flex;
+    flex-direction: column;
+    background: var(--white-color);
+  }
+
+  .menu-content {
+    height: auto; 
+    padding-top: 5rem;
+    padding-left:5rem;
+  }
+
+  a {
+    text-decoration: none;
+    list-style: none;
+    color: var(--black-color); /*Essa cor pertence ao NOME FELIPE da SIDE BAR*/
+    position: relative;
+  }
+
+/************************************* COMANDOS MAIS ESPECIFICOS PARA O LOGO *****************************************/
+  .menu h1 {font-size: 10px;}
+  .menu h1 div a {color: inherit; color: var(--black-color);}
+
+/************************************* COMANDOS MAIS ESPECIFICOS PARA OS OUTROS ITENS *****************************************/
+
+  .menu ul li span label a{
+    color: var(--black-color);
+    padding: 2rem;
+  }
+
+  .MEU-ICONE a{
+    margin-right: 80px;
+    width: 100px;
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
+  }
+
+  .CIRCULOFSP {
+    background: var(--black-color);
+    border-radius: 50%;
+    width: 101px;
+    height: 100px;
+    padding-top: 0;
+    animation: rodopiando 15s ease-in-out infinite;
+  }
+  .linha::before {width: 30%; background-color: var(--black-color);}
+
+  .linha:hover::before {transform-origin: left; transform: scaleX(1);}
+
+
+/****************************************************SECÇÕES EM GERAL************************************************************/
+
+  .Inicio-content, .Sobre-content, .Projetos-content, .Habilidades-content, .Contato-content {grid-template-columns: 1fr;}
+
+  .Spacing{display: none;}
+
+/************************************* Inicio ***************************************************************************/
+  .Inicio-content {
+    display: grid;
+    grid-template-rows: 1f 1f;
+    padding-bottom: 50px;
+    place-items: center;
+    position: relative;
+  }
+
+  .Titulo-Inicio{
+    position: absolute;
+    opacity: 0;
+  }
+
+/************************************* TEXTO DIGITANDO *****************************************/
+  .TextoDigitando {height: 50vh;  place-items: center;}
+
+  .Apresentacao1,.Apresentacao2,.Apresentacao3 {font-size: 40px;}
+
+/************************************* SOBRE-MIM *****************************************/
+  .Sobre-content {padding-top: 5rem;padding-bottom: 2rem;}
+
+/************************************* PROJETOS *****************************************/
+  .Projetos-content {padding-top: 5rem; padding-bottom: 2rem;}
+
+  .CAIXA {min-height: 0vh;padding-bottom: 7rem;}
+  
+
+/**************************************************** TEXTO EMBREVE ************************************************************/
+  .EmBreve {width: 300px;}
+
+  .EmBreve label {font-size: 50px; cursor: pointer;}
+
+/************************************* HABILIDADES *****************************************/
+  .Subtitulo-Habilidades .FullScreen {visibility: hidden;}
+  
+  .Subtitulo-Habilidades .SmallScreen {visibility: visible;}
+
+  .ICONES-LINGUAGENS a.disabled {
+    pointer-events: none; /* Desativa eventos de clique */
+    cursor: default; /* Define o cursor para o padrão do sistema */
+  }
+
+  .ICONES-LINGUAGENS {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20rem;
+  } 
+
+  .ICONES-LINGUAGENS .bola,.ICONE-PDF .bola {
+    position: relative;
+    z-index: 4;
+    background: var(--white-color);
+    border-radius: 50%;
+    padding: 40px;                               
+    /*Tamanho da bola*/
+    width: 50px;  
+    height: 50px; 
+    margin: 4rem;                                
+    /*Distancia entre as bolas*/
+    font-size: 1.1rem;
+
+    /*ALINHAMENTO DO ICONE NA BOLA*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  } 
+
+  /*CONFIG. NOME-DO-ICONE*/
+  .ICONES-LINGUAGENS .Nome-do-icone,.ICONE-PDF .Nome-do-icone{
+    position: absolute;
+    top: 100px;                                 /*Distancia do BOX-TEXT da BOLA*/
+    font-size: 1rem;
+    background: var(--white-color);
+    color: var(--white-color);
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  } 
+
+  /************************************* TEXTO HTML *****************************************/
+  .HTML .Nome-do-icone{
+    padding: 10px 5px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoHTML {padding: 5px 150px;}
+
+  /************************************* TEXTO CSS *****************************************/
+  .CSS .Nome-do-icone{
+    padding: 10px 5px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoCSS{padding: 5px 150px;}
+
+  /************************************* TEXTO C++ *****************************************/
+  .C .Nome-do-icone{
+    padding: 10px 5px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoC {padding: 5px 150px;}
+
+  /************************************* TEXTO ARDUINO *****************************************/
+  .Arduino .Nome-do-icone{
+    padding: 10px 7px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoArduino {padding: 5px 9rem;}
+
+  /*CONFIG. NOME-DO-ICONE (PONTA-DA-CAIXA)*/
+  .ICONES-LINGUAGENS .Nome-do-icone::before{
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: var(--white-color);
+    top: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .ICONES-LINGUAGENS .bola:hover .Nome-do-icone{
+    top: 100px;                                 /*Distancia do BOX-TEXT da BOLA*/
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .ICONES-LINGUAGENS .bola:hover span,
+  .ICONES-LINGUAGENS .bola:hover .Nome-do-icone{text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);}
+
+  .ICONES-LINGUAGENS .HTML:hover,
+  .ICONES-LINGUAGENS .HTML:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .HTML:hover .Nome-do-icone::before{
+    background: rgb(241, 101, 41);
+    color: var(--white-color);
+
+    a{color:var(--white-color);}
+  }
+
+  .ICONES-LINGUAGENS .CSS:hover,
+  .ICONES-LINGUAGENS .CSS:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .CSS:hover .Nome-do-icone::before{
+    background: rgb(51, 169, 220);
+    color: var(--white-color);
+
+    a{color:var(--white-color);}
+  }
+
+  .ICONES-LINGUAGENS .C:hover,
+  .ICONES-LINGUAGENS .C:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .C:hover .Nome-do-icone::before{
+    background: rgb(210, 99, 131);
+    color: var(--white-color);
+
+    a{color:var(--white-color);}
+  }
+
+  .ICONES-LINGUAGENS .Arduino:hover,
+  .ICONES-LINGUAGENS .Arduino:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .Arduino:hover .Nome-do-icone::before{
+    background: rgb(218, 246, 255);
+    color: rgb(0, 151, 156); 
+
+    a{color: rgb(0, 151, 156);}
+  }
+
+  /****************************************************RODAPE************************************************************/
+
+  .Rodapé p a {color:var(--white-color);}
+}

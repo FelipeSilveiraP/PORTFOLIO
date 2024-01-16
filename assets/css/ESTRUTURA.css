@@ -1,0 +1,1126 @@
+/********************VARIAVEIS*****************************/
+:root{
+  --black-color:#000000;
+  --white-color:#FFFFFF;
+  --light-gray-color:rgb(183, 181, 181);
+  --size:27px;
+}
+
+/***********CAIXA QUADRADA SELECT***************************/
+.Fechar-Menu {display: none;} 
+/*Com esse comando deixamos escondido a Carixa "CheckBox" para nosso botão do Menu Mobile*/
+
+/***********ELEMENTOS FORMATAÇÃO: ESTRUTURA E TEXTO*********/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus,
+*:active {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html{scroll-behavior: smooth;}
+
+a {
+  text-decoration: none;
+  list-style: none;
+  color: var(--white-color); /*Essa cor pertence ao NOME FELIPE da SIDE BAR*/
+  position: relative;
+}
+
+ul {list-style: none;}
+
+body {
+  background-color: var(--black-color);
+  font-family: "Varela", sans-serif;
+  font-size: var(--size);
+  font-weight: 700;
+}
+
+h1,h2,h3,h4,h5,h6 {font-family: "Varela", sans-serif;}
+
+h1 {font-size:5rem; text-transform: uppercase;}
+
+h2 {
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+h3{font-size:4rem;}
+h4{font-size:3.5rem;}
+h5{font-size:3rem;}
+h6{font-size:2.5rem;}
+
+.main-bg
+{
+  background-image: url('/assets/media/img/FUNDO-WEB.svg');
+  background-size: 20%;
+  background-position: center center;
+  color: var(--white-color);
+}
+  
+.black-bg {background: var(--black-color); color: var(--white-color);}
+
+.main-content 
+/*Aqueles que carregarem essa propr. 
+vão ter o texto alinhado ao centro com espaçamento correto*/
+{
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 2rem 5rem;
+}
+  
+.section {min-height: 100vh;} /*Aqueles que carregarem essa propr. vão ter a altura de 100px*/
+
+.Spacing {height: 6.5rem;} /*Esse comando serve para que a SIDE BAR não tampe nosso texto no INICIO*/
+
+/******************** BARRA INDICADOR SCROLL *****************************************/
+
+.Indicator-Scroll {
+  animation: scroll 0.5s ease-in-out;
+  animation-timeline: scroll(root);
+  background-color: var(--white-color);
+  transform-origin: left;
+  margin-top: 100px;
+  height: 5px;
+  inset: 0;
+  position: fixed;
+}
+
+@keyframes scroll {
+    from {
+      scale: 0 1;
+    }
+    
+    to {
+      scale: 1 1;
+    }
+}
+
+@media (max-width:1471px)
+{
+  .Indicator-Scroll {opacity: 0;}
+}
+
+/************************************* SIDE-BAR *****************************************/
+.menu {
+  background: rgba(0, 0, 0, 0.838);
+  top: 0; 
+  right: 0; 
+  left: 0; 
+  width: 100%;
+  border-bottom: 0.2rem solid var(--light-gray-color);
+  position: fixed;
+  z-index: 5;
+}
+
+.menu-content 
+/*Esse atributo garante para todos os elementos dentro da side-bar tenham a seguinte estrutura*/
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /*Com esse comando de acordo com a largura da letra empurrara a SIDE-BAR para baixo*/
+  padding-top: 0px;
+  padding-bottom: 0;
+}
+
+/************************************* COMANDOS MAIS ESPECIFICOS PARA O LOGO *****************************************/
+.menu h1 {font-size: var(--size);}
+.menu h1 div a {color: inherit; color: var(--white-color);}
+
+/************************************* COMANDOS MAIS ESPECIFICOS PARA OS OUTROS ITENS *****************************************/
+.menu ul {list-style: none; display: flex;}
+
+.menu ul li span label a{
+  display: block;
+  color: var(--white-color);
+  padding: 2rem;
+  font-size: var(--size);
+}
+
+.MEU-ICONE a{
+  height: 100px;
+  width: 400px;
+  display: flex;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+.FSP {
+  position: absolute;
+  z-index: 5;
+  transform: scale(0.4);
+  display: flex;
+  align-self: center;
+}
+
+.CIRCULOFSP {
+  width: 101px;
+  height: 100px;
+  padding-top: 0;
+  animation: rodopiando 15s ease-in-out infinite;
+}
+
+@keyframes rodopiando {
+  from{transform:rotate(0);}
+  to{transform:rotate(360deg);}
+}
+
+/************************************* EFEITO GLITCH *****************************************/
+.text label{font-size: var(--size); cursor: pointer;}
+
+label span{
+  position: relative;
+  color: var(--white-color);
+  z-index: 2;
+}
+
+.text {
+  position: relative;
+}
+
+.text label::before,
+.text label::after{
+  position: absolute;
+  top: 0;
+  padding: 2rem;
+  content: attr(data-content);
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:10px;
+  place-items:center;
+  visibility: hidden;
+  word-break: break-all; /* Adicionando word-break para tratar palavras com hífens */
+  white-space: nowrap; /* Evitando quebras de linha */
+}
+
+.text:hover label::before,
+.text:hover label::after{visibility: visible;}
+
+.text:hover label::before{
+  color: aqua;
+  animation: glitch .2s cubic-bezier(.25,.46,.45,.94) both infinite;
+}
+.text:hover label::after{
+  color: red;
+  animation: glitch .2s cubic-bezier(.25,.46,.45,.94) reverse both infinite;
+}
+
+@keyframes glitch {
+  0%   {transform: translate(0);}
+  20%  {transform: translate(-3px, 3px);}
+  40%  {transform: translate(-3px, -3px);}
+  60%  {transform: translate(3px, 3px);}
+  80%  {transform: translate(3px, -3px);}
+  100% {transform: translate(0);}
+}
+
+.linha::before {
+  position: absolute;
+  content: '';
+  width: 48%;
+  height: 3px;
+  background-color: var(--white-color);
+  bottom: 1.7rem;
+  left: 2rem;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .2s ease-in-out;
+}
+
+.linha:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/************************************* Inicio ***************************************************************************/
+.Inicio-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
+  min-height: 100vh;
+  align-items: center;
+  position: relative;
+}
+
+.Titulo-Inicio{
+  position: absolute;
+  opacity: 0;
+}
+
+/************************************* TEXTO DIGITANDO *****************************************/
+.TextoDigitando {
+  width: 100%;
+  height: 80vh;
+  margin-bottom: 10px;
+
+  position: relative;
+  z-index: 0;
+  top:20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.Apresentacao1,.Apresentacao2,.Apresentacao3 {
+  color:rgb(15, 211, 250);
+  font-family: monospace;
+  font-size: 60px;
+  border-right: 3px solid var(--white-color); /*Aqui criamos aquele cursor fino enqaunto digita*/
+}
+
+/************************************* Olá! Meu Nome é *****************************************/
+.Apresentacao1 {
+  color: var(--white-color);
+  width: 15ch;                                /*O Tamanho que voce coloca aqui corresponde ao número de caracterers na frase*/
+  white-space: nowrap;
+  overflow: hidden;
+
+  animation: digitandoNome1 1.5s steps(15), cursorNome1 500ms 1.5s forwards;
+}
+
+@keyframes digitandoNome1{from {width: 0;}}
+
+@keyframes cursorNome1{100% {border-right-color: transparent;}}
+
+/************************************* Felipe Silveira Pessoa *****************************************/
+.Apresentacao2 {
+  width: 22ch;                                /*O Tamanho que voce coloca aqui corresponde ao número de caracterers na frase*/
+  white-space: nowrap;
+  overflow: hidden;
+  visibility: hidden;
+
+  animation: digitandoNome2 1.5s steps(22) 1.5s forwards, cursorNome1 500ms 3s forwards;
+}
+
+/************************************* Sou Desenvolvedor Full Stack *****************************************/
+.Apresentacao3 {
+  font-size: 30px;
+  width: 24ch;                                /*O Tamanho que voce coloca aqui corresponde ao número de caracterers na frase*/
+  white-space: nowrap;
+  overflow: hidden;
+  visibility: hidden;
+
+  animation: digitandoNome2 1s steps(24) 7s forwards, cursorNome1 500ms 4s infinite alternate;
+}
+
+@keyframes digitandoNome2{
+  from {width: 0;}
+  to{visibility: visible;}
+}
+
+/************************************* Video *****************************************/
+.INICIO-COMPUTER{
+  width: 524.5px;
+  height: 632.88px;
+  display: flex;
+  justify-content: center;
+  background: rgba(14, 14, 90, 0.811);
+  clip-path: polygon(17% 5%, 83% 5%, 95% 20%, 95% 80%, 83% 95%, 17% 95%, 5% 80%, 5% 20%);
+}
+
+.INICIO-COMPUTER video{
+  display: flex;
+  justify-content: center;
+  min-height: 90vh;
+  max-width: 100%;
+  border: 4px solid rgb(18, 117, 137);
+  clip-path: polygon(10% 10%, 90% 10%, 100% 20%, 100% 80%, 90% 90%, 10% 90%, 0% 80%, 0% 20%);
+}
+
+.Screen{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background: url(/assets/media/img/FUNDO-PIXEL.svg);
+  color: var(--black-color);
+  width: 434.05px;
+  height: 632.88px ;
+  clip-path: polygon(10% 10%, 90% 10%, 100% 20%, 100% 80%, 90% 90%, 10% 90%, 0% 80%, 0% 20%);
+}
+
+.Listras{
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+  position: absolute;
+  z-index: 400;
+  transform: translateY(30px);
+  background-image: url(https://www.alura.com.br/assets/img/alura2023/home/console-prompt-detail.1694037151.svg);
+}
+
+.Texto-Screen{
+  font-size: 20px;
+  color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:30px;
+}
+
+.Avatar {width: 300px; height: 300px ;}
+
+/************************************* SETA - INICIO *****************************************/
+.SETA {
+  color: #30eee7;
+  width: auto;
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  align-self: flex-end;
+  justify-self: center;
+
+  animation: surgindo 3s cubic-bezier(0, 0.55, 0.45, 1) infinite;
+}
+
+.SETA i {transform: scale(2);}
+
+@keyframes surgindo {
+  0%   {transform:translateY(-50px); opacity: 0;}
+  50%  {opacity: 1;}
+  100% {transform:translateY(-10px);}
+}
+
+/****************************************************SOBRE MIM************************************************************/
+.Sobre-content {
+  min-height: 80vh;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  max-width: 57rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  text-align: start;
+}
+
+.Sobre-content h2 {color: #0088B3; text-align: center;}
+
+.Sobre-content p {
+  font-size: 20px;
+  margin-bottom: 3px;
+  text-align: justify;
+  animation: appear 1ms ease-in-out;
+  animation-timeline: view();
+  animation-range: cover 0% cover 35%;
+} 
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    translate: -200vw 0;
+  }
+  
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.Paragrafo{padding-left: 3rem;  /*Criamos um pequeno parágrafo*/}
+
+.ITA {color:aqua;}
+.FATEC{color:red;}
+
+/************************************* SETA - SOBREMIM *****************************************/
+.SETA1 {
+  color: #30eee7;
+  width: auto;
+  display: flex;
+  align-self: center;
+  justify-self: flex-end;
+
+  animation: surgindo1 3s cubic-bezier(0, 0.55, 0.45, 1) infinite;
+}
+
+.SETA1 i {transform: scale(2);}
+
+@keyframes surgindo1 {
+  0%   {transform:translateY(-30px); opacity: 0;}
+  50%  {opacity: 1;}
+  100% {transform:translateY(20px);}
+}
+
+/**************************************************** PROJETOS ************************************************************/
+.Projetos-content {
+  min-height: 80vh;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  max-width: 57rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center;
+  align-content: center;
+}
+
+.Projetos-content h2 {color: var(--white-color); text-align: center;}
+
+/**************************************************** TEXTO EMBREVE ************************************************************/
+.EmBreve {
+  color: var(--white-color);
+  position: relative;
+  text-transform: uppercase;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.EmBreve label {font-size: 100px; cursor: pointer;}
+
+.EmBreve label span{
+  position: relative;
+  color: var(--white-color);
+  z-index: 2;
+}
+
+.EmBreve label::before,
+.EmBreve label::after{
+  position: absolute;
+  content: attr(data-content);
+  place-items:center;
+  visibility: hidden;
+  word-break: break-all; 
+  /* Adicionando word-break para tratar palavras com hífens */
+  white-space: nowrap;   
+  /* Evitando quebras de linha */
+}
+
+.EmBreve label::before,
+.EmBreve label::after{visibility: visible;}
+
+.EmBreve label::before{
+  color: aqua;
+  animation: glitch3 .2s cubic-bezier(.25,.46,.45,.94) both infinite;
+}
+.EmBreve label::after{
+  left:0;
+  color: red;
+  animation: glitch3 .2s cubic-bezier(.25,.46,.45,.94) reverse both infinite;
+}
+
+@keyframes glitch3 {
+0%{
+  transform: translate(0);
+}
+20%{
+  transform: translate(-6px, 6px);
+}
+40%{
+  transform: translate(-6px, -6px);
+}
+60%{
+  transform: translate(6px, 6px);
+}
+80%{
+  transform: translate(6px, -6px);
+}
+100%{
+  transform: translate(0);
+}
+}
+
+/**************************************************** BOX-SLIDE-IMAGES ************************************************************/
+.CAIXA{
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  width: 100%;
+  place-content: center;
+  overflow: hidden;
+}
+
+#slider {
+  margin: 0 auto;
+  width: 800px;
+  max-width: 100%;
+  text-align: center;
+}
+#slider input[type=radio] {display: none;}
+#slider label {text-decoration: none;}
+#slides {
+  padding: 2px;
+  border: 3px solid var(--black-color);
+  box-shadow: 5px 5px 18px red;
+  background: aqua;
+  position: relative;
+  z-index: 1;
+}
+#overflow {width: 100%; overflow: hidden;}
+
+#slide1:checked ~ #slides .inner {margin-left: 0;}
+#slide2:checked ~ #slides .inner {margin-left: -100%;}
+#slide3:checked ~ #slides .inner {margin-left: -200%;}
+
+#slides .inner {
+  transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  width: 400%;
+  line-height: 0;
+  height: 300px;
+}
+#slides .slide {
+  width: 25%;
+  float:left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--white-color);
+}
+
+#slides .slide_1 {
+  background: url(/assets/media/img/FUNDO-PIXEL.svg);
+  background-size: 100%;
+  background-position: center center;
+}
+#slides .slide_2 {
+  background: url(/assets/media/img/FUNDO-PIXEL2.svg);
+  background-size: 100%;
+  background-position: center center;
+}
+#slides .slide_3 {
+  background: url(/assets/media/img/FUNDO-PIXEL3.svg);
+  background-size: 100%;
+  background-position: center center;
+}
+
+#controls {
+  margin: -180px 0 0 0;
+  height: 50px;
+  z-index: 3;
+  position: relative;
+}
+
+#bullets {margin-top: 150px; text-align: center;}
+
+#bullets label {
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius:100%;
+  background: #ccc;
+  margin: 0 10px;
+}
+#slide1:checked ~ #bullets label:nth-child(1),
+#slide2:checked ~ #bullets label:nth-child(2),
+#slide3:checked ~ #bullets label:nth-child(3),
+#slide4:checked ~ #bullets label:nth-child(4) {background: #444;}
+
+@media screen and (max-width: 900px) {
+
+  #slides {max-width: calc(100% - 140px); margin: 0 auto;}
+}
+
+/************************************* SETA - PROJETOS *****************************************/
+.SETA2 {
+  position: relative;
+  z-index: 100;
+  color: #30eee7;
+  width: 100%;
+  display: grid;
+  align-self: center;
+  justify-self: center;
+
+  animation: surgindo2 3s cubic-bezier(0, 0.55, 0.45, 1) infinite;
+}
+
+.SETA2 i{transform: scale(2);}
+
+@keyframes surgindo2 {
+  0%   {transform:translateY(0px); opacity: 0;}
+  50%  {opacity: 1;}
+  100% {transform:translateY(100px);}
+}
+
+/************************************* HABILIDADES *****************************************/
+
+.Habilidades-content {
+  min-height: 80vh;
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+  max-width: 57rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-content: center;
+}
+.Habilidades-content h2 {color: #0088B3; text-align: center;}
+
+.Subtitulo-Habilidades .FullScreen {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  color:var(--white-color);
+  visibility: visible;
+}
+
+.Subtitulo-Habilidades .SmallScreen {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  color:var(--white-color);
+  visibility: hidden;
+}
+
+@media (max-width:4000px)
+{
+  .ICONES-LINGUAGENS {
+    display:flex;
+    justify-content: flex-start;
+    gap:80px;
+    list-style: none;
+    visibility: visible;
+  } 
+
+  .ICONES-LINGUAGENS .bola,.ICONE-PDF .bola {
+    position: relative;
+    z-index: 4;
+    background: var(--white-color);
+    border-radius: 50%;
+    padding: 40px;                               /*Tamanho da bola*/
+    width: 50px;  
+    height: 50px; 
+    margin: 4rem;                                /*Distancia entre as bolas*/
+    font-size: 1.1rem;
+
+    /*ALINHAMENTO DO ICONE NA BOLA*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  } 
+
+  /*CONFIG. NOME-DO-ICONE*/
+  .ICONES-LINGUAGENS .Nome-do-icone,.ICONE-PDF .Nome-do-icone{
+    position: absolute;
+    top: 100px;                                 /*Distancia do BOX-TEXT da BOLA*/
+    font-size: 1rem;
+    background: var(--white-color);
+    color: var(--white-color);
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  } 
+
+  /************************************* TEXTO HTML *****************************************/
+  .HTML .Nome-do-icone{
+    padding: 10px 5px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoHTML {padding: 5px 150px;}
+
+  /************************************* TEXTO CSS *****************************************/
+  .CSS .Nome-do-icone{
+    padding: 10px 5px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoCSS{padding: 5px 150px;}
+
+  /************************************* TEXTO C++ *****************************************/
+  .C .Nome-do-icone{
+    padding: 10px 5px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoC {padding: 5px 150px;}
+
+  /************************************* TEXTO ARDUINO *****************************************/
+  .Arduino .Nome-do-icone{
+    padding: 10px 7px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoArduino {padding: 5px 9rem;}
+
+  /*CONFIG. NOME-DO-ICONE (PONTA-DA-CAIXA)*/
+  .ICONES-LINGUAGENS .Nome-do-icone::before{
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: var(--white-color);
+    top: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .ICONES-LINGUAGENS .bola:hover .Nome-do-icone{
+    top: 100px;                                 /*Distancia do BOX-TEXT da BOLA*/
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .ICONES-LINGUAGENS .bola:hover span,
+  .ICONES-LINGUAGENS .bola:hover .Nome-do-icone{text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);}
+
+  .ICONES-LINGUAGENS .HTML:hover,
+  .ICONES-LINGUAGENS .HTML:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .HTML:hover .Nome-do-icone::before{
+    background: rgb(241, 101, 41);
+    color: var(--white-color);
+
+    a{color:var(--white-color);}
+  }
+
+  .ICONES-LINGUAGENS .CSS:hover,
+  .ICONES-LINGUAGENS .CSS:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .CSS:hover .Nome-do-icone::before{
+    background: rgb(51, 169, 220);
+    color: var(--white-color);
+
+    a{color:var(--white-color);}
+  }
+
+  .ICONES-LINGUAGENS .C:hover,
+  .ICONES-LINGUAGENS .C:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .C:hover .Nome-do-icone::before{
+    background: rgb(210, 99, 131);
+    color: var(--white-color);
+
+    a{color:var(--white-color);}
+  }
+
+  .ICONES-LINGUAGENS .Arduino:hover,
+  .ICONES-LINGUAGENS .Arduino:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .Arduino:hover .Nome-do-icone::before{
+    background: rgb(218, 246, 255);
+    color: rgb(0, 151, 156); 
+
+    a{color: rgb(0, 151, 156);}
+  }
+}
+/************************************* EFEITO LUZ + AUMENTO DA BORDA *****************************************/
+.hover-HTML::after,.hover-CSS::after,.hover-C::after,.hover-Arduino::after,.hover-PDF::after{
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  content: '';
+  box-sizing: content-box;
+  box-shadow: 0 0 0 3px var(--white-color);
+  opacity: 0;
+  transition: 300ms;
+}
+
+/************************************* EFEITO LUZ HTML *****************************************/
+.hover-HTML:hover::after{
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px rgb(228, 77, 38), /*Cor da Borda*/
+  0px 0px 500px rgb(252, 86, 26),         /*Cores das Sombras*/
+  0px 0px 1000px rgb(249, 119, 50);
+}
+
+/************************************* EFEITO LUZ CSS *****************************************/
+.hover-CSS:hover::after{
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px rgb(21, 114, 182), /*Cor da Borda*/
+  0px 0px 500px aqua,                      /*Cores das Sombras*/
+  0px 0px 1000px rgb(191, 240, 255);
+} 
+
+/************************************* EFEITO LUZ C++ *****************************************/
+.hover-C:hover::after{
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px rgb(156, 3, 58), /*Cor da Borda*/
+  0px 0px 500px rgb(210, 99, 131),       /*Cores das Sombras*/
+  0px 0px 1000px rgb(209, 128, 151);
+} 
+
+/************************************* EFEITO LUZ ARDUINO *****************************************/
+.hover-Arduino:hover::after{
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px rgb(0, 151, 156), /*Cor da Borda*/
+  0px 0px 500px rgb(65, 156, 159),        /*Cores das Sombras*/
+  0px 0px 1000px rgb(191, 240, 255);
+} 
+
+/************************************* CURRICULO *****************************************/
+.Curriculo {
+  display: flex;
+  justify-self: center;
+  padding-top: 23rem;
+}
+
+.ICONE-PDF {
+  display:flex;
+  justify-content: center;
+  gap:80px;
+  list-style: none;
+} 
+
+/************************************* EFEITO LUZ PDF *****************************************/
+.ICONE-PDF .PDF:hover,
+.ICONE-PDF .PDF:hover ,
+.ICONE-PDF .PDF::before{
+  background: rgb(242, 85, 69);
+  color: var(--white-color);
+
+  a{color:var(--white-color);}
+}
+
+.ICONE-PDF .bola:hover .Nome-do-icone{
+  top: 100px; /*Distancia do BOX-TEXT da BOLA*/
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.hover-PDF:hover::after{
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px red, /*CORES DAS SOMBRAS*/
+  0px 0px 500px rgb(251, 51, 51),
+  0px 0px 1000px rgb(255, 121, 121);
+} 
+
+/************************************* SETA - HABILIDADES *****************************************/
+.SETA3 {
+  position: relative;
+  z-index: 100;
+  color: #30eee7;
+  width: 100%;
+  display: grid;
+  align-content: flex-end;
+  justify-content: center;
+
+  animation: surgindo3 3s cubic-bezier(0, 0.55, 0.45, 1) infinite;
+}
+
+.SETA3 i {transform: scale(2);}
+
+@keyframes surgindo3 {
+  0%   {transform:translateY(-70px); opacity: 0;}
+  50%  {opacity: 1;}
+  100% {transform:translateY(10px);}
+}
+
+/************************************* CONTATO *****************************************/
+.Contato-content {
+  min-height: 100vh;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  max-width: 57rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: center; 
+}
+.Contato-content h2 {color: var(--white-color); }
+
+.TodoComputador{display: flex; justify-content: center;}
+
+.CONTATO-COMPUTER{
+  width: 524.5px;
+  height: 632.88px;
+  display: flex;
+  justify-content: center;
+  background: rgb(14, 14, 90);
+  clip-path: polygon(17% 5%, 83% 5%, 95% 20%, 95% 80%, 83% 95%, 17% 95%, 5% 80%, 5% 20%);
+}
+
+.Screen2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  background: url(/assets/media/img/FUNDO-PIXEL.svg);
+  color: var(--black-color);
+  width: 434.05px;
+  height: 632.88px ;
+  clip-path: polygon(10% 10%, 90% 10%, 100% 20%, 100% 80%, 90% 90%, 10% 90%, 0% 80%, 0% 20%);
+}
+
+/************************************* CURSOR *****************************************/
+.Screen2 .Cursor-hand{
+  position: absolute;
+  z-index:3;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+/************************************* CURSOR ANIMAÇÃO *****************************************/
+.Cursor-hand {animation: movimentando 10s ease-in-out infinite;}
+
+@keyframes movimentando {
+  20%  {transform:translate(-135px,-78px);}
+  40%  {transform:translate(145px,-78px);}
+  60%  {transform:translate(-135px,200px);}
+  80%  {transform:translate(145px,200px);}
+  100% {transform:translate(0px,0px);}
+}  
+
+/************************************* ICONES REDES SOCIAIS *****************************************/
+.ICONES-REDES-SOCIAIS a{color: var(--black-color);}
+
+.ICONES-REDES-SOCIAIS {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:200px;
+}
+
+.HOVER-GitHub,
+.HOVER-Tinkercad,
+.HOVER-linkedIn,
+.HOVER-instagram {
+  position: relative;
+  z-index: 0;
+  font-size: 2rem;
+  display: inline-block;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  line-height: 84px;
+  border-radius: 50%;
+  text-align: center;
+  color: var(--black-color);
+  background-color: var(--white-color);
+  transition: 300ms;
+}
+
+.HOVER-Tinkercad,.HOVER-GitHub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.HOVER-GitHub::after,.HOVER-Tinkercad::after,.HOVER-linkedIn::after,.HOVER-instagram::after {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  content: '';
+  box-sizing: content-box;
+  box-shadow: 0 0 0 3px var(--white-color);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 300ms;
+}
+
+.HOVER-GitHub:hover {background: linear-gradient(#a468b0,#6d2889);}
+
+.HOVER-GitHub:hover:after{
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px #6d2889,
+  0px 0px 500px #a468b0,
+  0px 0px 1000px #b39dbc;
+}
+
+.HOVER-Tinkercad:hover{
+  background: radial-gradient(circle farthest-corner at 35% 90%, #106aa3, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #449bd1, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #fa4824, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #fb7d38, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #fd9d3b, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #d8cf33, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #68bada, transparent), linear-gradient(#fa4824, #d8cf33 30%, #27b45d 50%, #92ca08 70%, #d5d52b 100%);
+  color:var(--white-color);
+}
+
+.HOVER-Tinkercad:hover:after {
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px #ff7a3a,
+  0px 0px 500px #d5d52b,
+  0px 0px 1000px #68bada;
+} 
+.HOVER-linkedIn:hover{background:#3b5998; color:var(--white-color);}
+
+.HOVER-linkedIn:hover:after{
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px #3b5998,
+  0px 0px 500px #0649db,
+  0px 0px 1000px #3b5998;
+}
+
+.HOVER-instagram:hover{
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+  color:var(--white-color);
+}
+
+.HOVER-instagram:hover:after {
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px #962fbf,
+  0px 0px 500px #bc318f,
+  0px 0px 1000px #e33f5f;
+} 
+
+/****************************************************RODAPE************************************************************/
+.Rodapé {
+  min-height: 4vh;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start; 
+  text-align: start; 
+  font-size: 20px;
+  color:var(--white-color);
+}
+
+/****************************************************SETA RETORNAR PARA O TOPO************************************************************/
+.RETONAR-TOPO {
+  position: fixed;
+  z-index: 6;
+  bottom: 2rem;  /*POSIÇÃODO BOTÃO*/
+  right: 1.5rem;   /*POSIÇÃODO BOTÃO*/
+
+  background: var(--white-color);
+  color: var(--black-color);
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  border: 0.2rem solid #047099;
+  border-radius: 50%;
+  box-shadow: -0.1rem 0.2rem 0.6rem #047099;
+}
+
+.RETONAR-TOPO {
+  animation: appear2 5ms ease-in-out;
+  animation-timeline: view();
+  animation-range: cover 0% cover 100%;
+}
+
+.SETA4 {
+  padding:0.9rem;
+  color: #047099;
+  transform: rotate(180deg);
+  width: auto;
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  align-self: flex-end;
+  justify-self: center;
+}
+
+.SETA4 i {transform: scale(1.5);}
+
+.RETONAR-TOPO:hover {background: rgb(218, 246, 255); transition: all 300ms ease-in-out;}
+
+@keyframes appear2 {
+  0%   {opacity: 0; transform: translateY(200vh);}
+  100% {opacity: 1; transform: translateY(0);}
+}

@@ -1,0 +1,100 @@
+/*****************************************************PARA TELAS MAIROES EM GERAL********************************************************************/
+@media (max-width:4000px) and (min-width:1537px)
+{
+  .SITE {transform: translateX(center);}
+
+  .main-content 
+  /*Aqueles que carregarem essa propr. 
+  vão ter o texto alinhado ao centro com espaçamento correto*/
+  {
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 2rem 5rem;
+  }
+
+  .menu {width:100vw; position: fixed;}
+
+  .menu-content 
+  /*Esse atributo garante para todos os elementos dentro da side-bar tenham a seguinte estrutura*/
+  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    /*Com esse comando de acordo com a largura da letra empurrara a SIDE-BAR para baixo*/
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /************************************* Inicio ***************************************************************************/
+  .TextoDigitando {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  /************************************* Video *****************************************/
+  .INICIO-COMPUTER{
+    width: 650px;
+    height: 750px;
+    display: flex;
+    justify-content: center;
+    background: rgba(14, 14, 90, 0.811);
+    clip-path: polygon(17% 5%, 83% 5%, 95% 20%, 95% 80%, 83% 95%, 17% 95%, 5% 80%, 5% 20%);
+  }
+
+  /****************************************************SOBRE MIM************************************************************/
+  .Sobre-content {
+    max-width: 120rem;
+    min-height: 80vh;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    max-width: 57rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: start;
+  }
+
+  /**************************************************** PROJETOS ************************************************************/
+  .Projetos-content {
+    min-height: 80vh;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    max-width: 57rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+  }
+
+  /**************************************************** BOX-SLIDE-IMAGES ************************************************************/
+  .CAIXA{
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 70vh;
+    width: 100%;
+    place-content: center;
+    overflow: hidden;
+  }
+
+  /************************************* SETA - PROJETOS *****************************************/
+
+  @keyframes surgindo2 {
+    0%   {transform:translateY(0px); opacity: 0;}
+    50%  {opacity: 1;}
+    100% {transform:translateY(70px);}
+  }
+
+  /************************************* HABILIDADES *****************************************/
+
+  .ICONES-LINGUAGENS {
+    display:flex;
+    justify-content: center;
+    gap:80px;
+    list-style: none;
+    visibility: visible;
+  } 
+
+}

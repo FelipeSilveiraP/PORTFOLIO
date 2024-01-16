@@ -1,0 +1,527 @@
+/*****************************************************PARA-TELA-NESTHUB-EM-GERAL********************************************************************/
+
+@media (max-width:1025px) and (min-width:819px) and (max-height:1369px) and (min-height:719px)
+{
+    /****************************************************BOTAO DE ABRIR E FECHAR MENU************************************************************/ 
+ .Fechar-Menu {
+    position: fixed; 
+    z-index: 2;
+    top:0;
+    left:0;
+  }
+
+  .Fechar-Menu-label::after{
+    content: '☰';
+    position: fixed; 
+    z-index: 10;
+    top: 1rem;
+    right: 2rem;
+    background: var(--white-color);
+    color: aqua;
+
+    /*TAMANHO DO BOTÃO*/
+    font-size: 2rem;
+    line-height: 2rem;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .Fechar-Menu:checked~.menu{display: block;}
+
+  .Fechar-Menu:checked~.Fechar-Menu-label::after {
+    display: block; 
+    content: '×';    
+    z-index: 6;
+    animation: rodando 0.4s ease-in-out alternate both;
+  }
+
+  @keyframes rodando {from{transform: rotate(360deg);}}
+
+  /****************************************************MENU************************************************************/
+  .Indicator-Scroll{opacity: 0;}
+  .menu {
+    display: none;
+    bottom: 0;
+    padding-left:60%;
+    padding-right:0%;
+    background: none;
+    border-bottom: none;
+
+    animation: deslize 0.5s ease-in-out alternate both;
+  }
+
+  @keyframes deslize {from{transform: translateX(300px);}}
+
+  .menu-content, .menu-content ul, .MEU-ICONE {
+    display: flex;
+    flex-direction: column;
+    background: var(--white-color);
+  }
+
+  .menu-content {
+    height: auto; 
+    padding-top: 5rem;
+    padding-left:6rem;
+  }
+
+  a {
+    text-decoration: none;
+    list-style: none;
+    color: var(--black-color); /*Essa cor pertence ao NOME FELIPE da SIDE BAR*/
+    position: relative;
+  }
+
+  /************************************* COMANDOS MAIS ESPECIFICOS PARA O LOGO *****************************************/
+  .menu h1 div a {color: inherit; color: var(--black-color);}
+
+  /************************************* COMANDOS MAIS ESPECIFICOS PARA OS OUTROS ITENS *****************************************/
+
+  .menu ul li span label a{
+    color: var(--black-color);
+    padding: 1rem;
+    font-size: 20px;
+    padding-left: 0;
+  }
+
+   .MEU-ICONE a{
+    margin-right: 80px;
+    width: 100px;
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
+  }
+
+  .FSP {
+    position: absolute;
+    z-index: 5;
+    transform: scale(0.4);
+  }
+
+  .CIRCULOFSP {
+    background: var(--black-color);
+    border-radius: 50%;
+    padding-top: 0;
+    animation: rodopiando 15s ease-in-out infinite;
+  }
+
+  /************************************* EFEITO GLITCH *****************************************/
+  .text label{font-size: 20px; cursor: pointer;}
+  
+  .text label::before,
+  .text label::after {bottom:0; padding: 0.09rem;}
+
+  .linha::before {
+    width: 37%;
+    height: 3px;
+    background-color: var(--black-color);
+    bottom: 1rem;
+    left: 0.09rem;
+  }
+
+  /****************************************************SECÇÕES EM GERAL************************************************************/
+
+  .Inicio-content, .Sobre-content, .Projetos-content, .Habilidades-content, .Contato-content {grid-template-columns: 1fr;overflow: hidden; }
+
+  .Spacing{display: none;}
+
+  /************************************* Inicio ***************************************************************************/
+  .Inicio-content {
+  justify-content: center;
+  padding-bottom: 50px;
+  position: relative;
+  }
+
+  .Titulo-Inicio{
+  position: absolute;
+  opacity: 0;
+  }
+  
+  .INICIO-COMPUTER{
+    width: 400px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background: rgba(14, 14, 90, 0.811);
+    clip-path: polygon(17% 5%, 83% 5%, 95% 20%, 95% 80%, 83% 95%, 17% 95%, 5% 80%, 5% 20%);
+  }
+
+  .INICIO-COMPUTER video{
+    width: 300px;
+    height: 632.88px;  
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    min-height: 90vh;
+    max-width: 100%;
+    border: none;
+  }
+
+  .Screen{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background: url(/assets/media/img/FUNDO-PIXEL.svg);
+    color: var(--black-color);
+    width: 300px;
+    height: 500px;
+    clip-path: polygon(10% 10%, 90% 10%, 100% 20%, 100% 80%, 90% 90%, 10% 90%, 0% 80%, 0% 20%);
+  }
+
+  /************************************* TEXTO DIGITANDO *****************************************/
+  .TextoDigitando {height: 20vh;  place-items: center;}
+
+  .Apresentacao1,.Apresentacao2,.Apresentacao3 {font-size: 40px;}
+
+  .Inicio-content video {height:2px;}
+
+  /************************************* SOBRE-MIM *****************************************/
+  .Sobre-content { padding-top: 5rem;padding-bottom: 2rem;}
+
+  .Sobre-content h2 {font-size: 40px;}
+
+  .Sobre-content p {
+    overflow: visible;
+    font-size: 15px;
+    margin-bottom: 3px;
+    text-align: justify;
+    animation: appear2 1ms ease-in-out;
+  }
+  
+  /************************************* PROJETOS *****************************************/
+  .Projetos-content {padding-top: 5rem;padding-bottom: 2rem;}
+
+  .Projetos-content h2 {font-size: 40px;}
+
+  .Projetos-content p {
+    font-size: 15px;
+    margin-bottom: 3px;
+    text-align: justify;
+  }
+  /**************************************************** TEXTO EMBREVE ************************************************************/
+  .EmBreve {width: 300px;}
+
+  .EmBreve label {font-size: 30px; cursor: pointer;}
+
+  .CAIXA{
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 50vh;
+    padding-bottom:7rem;
+    width: 100%;
+    place-content: center;
+    overflow: hidden;
+  }
+
+  /************************************* HABILIDADES *****************************************/
+  .Habilidades-content h2 {font-size: 40px;}
+  
+  .Subtitulo-Habilidades .FullScreen {visibility: hidden;}
+
+  .Subtitulo-Habilidades .SmallScreen {visibility: visible;}
+
+  .ICONES-LINGUAGENS a.disabled {
+    pointer-events: none; /* Desativa eventos de clique */
+    cursor: default; /* Define o cursor para o padrão do sistema */
+  }
+
+  .ICONES-LINGUAGENS {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    row-gap: 20rem;
+  } 
+
+  .ICONES-LINGUAGENS .bola,.ICONE-PDF .bola {
+    position: relative;
+    z-index: 4;
+    background: var(--white-color);
+    border-radius: 50%;
+    padding: 40px;                               
+    /*Tamanho da bola*/
+    width: 50px;  
+    height: 50px; 
+    margin: 4rem;                                
+    /*Distancia entre as bolas*/
+    font-size: 1.1rem;
+
+    /*ALINHAMENTO DO ICONE NA BOLA*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  } 
+
+  /*CONFIG. NOME-DO-ICONE*/
+  .ICONES-LINGUAGENS .Nome-do-icone,.ICONE-PDF .Nome-do-icone{
+    position: absolute;
+    top: 100px;                                 /*Distancia do BOX-TEXT da BOLA*/
+    font-size: 1rem;
+    background: var(--white-color);
+    color: var(--white-color);
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  } 
+
+  /************************************* TEXTO HTML *****************************************/
+  .HTML .Nome-do-icone{
+    padding: 10px 5px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoHTML {padding: 5px 150px;}
+
+  /************************************* TEXTO CSS *****************************************/
+  .CSS .Nome-do-icone{
+    padding: 10px 5px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoCSS{padding: 5px 150px;}
+
+  /************************************* TEXTO C++ *****************************************/
+  .C .Nome-do-icone{
+    padding: 10px 5px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoC {padding: 5px 150px;}
+
+  /************************************* TEXTO ARDUINO *****************************************/
+  .Arduino .Nome-do-icone{
+    padding: 10px 7px; /*TAMANHO (ALTURA E LARGURA)BOX-TEXT DA  BOLA*/
+    text-align: justify;
+  } 
+  .textoArduino {padding: 5px 9rem;}
+
+  /*CONFIG. NOME-DO-ICONE (PONTA-DA-CAIXA)*/
+  .ICONES-LINGUAGENS .Nome-do-icone::before{
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: var(--white-color);
+    top: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .ICONES-LINGUAGENS .bola:hover .Nome-do-icone{
+    top: 100px;                                 /*Distancia do BOX-TEXT da BOLA*/
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .ICONES-LINGUAGENS .bola:hover span,
+  .ICONES-LINGUAGENS .bola:hover .Nome-do-icone{text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);}
+
+  .ICONES-LINGUAGENS .HTML:hover,
+  .ICONES-LINGUAGENS .HTML:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .HTML:hover .Nome-do-icone::before{
+    background: rgb(241, 101, 41);
+    color: var(--white-color);
+
+    a{color:var(--white-color);}
+  }
+
+  .ICONES-LINGUAGENS .CSS:hover,
+  .ICONES-LINGUAGENS .CSS:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .CSS:hover .Nome-do-icone::before{
+    background: rgb(51, 169, 220);
+    color: var(--white-color);
+
+    a{color:var(--white-color);}
+  }
+
+  .ICONES-LINGUAGENS .C:hover,
+  .ICONES-LINGUAGENS .C:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .C:hover .Nome-do-icone::before{
+    background: rgb(210, 99, 131);
+    color: var(--white-color);
+
+    a{color:var(--white-color);}
+  }
+
+  .ICONES-LINGUAGENS .Arduino:hover,
+  .ICONES-LINGUAGENS .Arduino:hover .Nome-do-icone,
+  .ICONES-LINGUAGENS .Arduino:hover .Nome-do-icone::before{
+    background: rgb(218, 246, 255);
+    color: rgb(0, 151, 156); 
+
+    a{color: rgb(0, 151, 156);}
+  }
+
+  .Contato-content {
+    min-height: 100vh;
+    padding-top: 3rem;
+    padding-bottom: 8rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center; 
+  }
+  .Contato-content h2 {color: var(--white-color); font-size: 40px;}
+  
+  .TodoComputador{display: flex; justify-content: center;margin-top: 100px;}
+  
+  .CONTATO-COMPUTER{margin: -100px;}
+  
+  .Screen2{width: 420.05px; height: 632.88px;}
+
+  /************************************* CURSOR ANIMAÇÃO *****************************************/
+  .Cursor-hand {animation: movimentando 10s ease-in-out infinite;}
+
+  @keyframes movimentando {
+    20%  {transform:translate(-85px,-30px);}
+    40%  {transform:translate(95px,-30px);}
+    60%  {transform:translate(-85px,150px);}
+    80%  {transform:translate(95px,150px);}
+    100% {transform:translate(0px,0px);}
+  }  
+
+  /************************************* ICONES REDES SOCIAIS *****************************************/
+
+  .ICONES-REDES-SOCIAIS {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:100px;
+  }
+
+  /****************************************************RODAPE************************************************************/
+
+  .Rodapé {
+    min-height: 4vh;
+    padding-left: 30px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start; 
+    text-align: start; 
+    font-size: 20px;
+    color:var(--white-color);
+  }
+
+  .Rodapé p a {color:var(--white-color);}
+}
+
+/*****************************************************(IPAD MINI)********************************************************************/
+
+@media (max-width:768px)
+{
+  .INICIO-COMPUTER{
+    width: 400px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background: rgba(14, 14, 90, 0.811);
+    clip-path: polygon(17% 5%, 83% 5%, 95% 20%, 95% 80%, 83% 95%, 17% 95%, 5% 80%, 5% 20%);
+  }
+
+  .INICIO-COMPUTER video{
+    width: 300px;
+    height: 632.88px;  
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    min-height: 90vh;
+    max-width: 100%;
+    border: none;
+  }
+
+  .Screen{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background: url(/assets/media/img/FUNDO-PIXEL.svg);
+    color: var(--black-color);
+    width: 300px;
+    height: 500px;
+    clip-path: polygon(10% 10%, 90% 10%, 100% 20%, 100% 80%, 90% 90%, 10% 90%, 0% 80%, 0% 20%);
+  }
+}
+
+/*****************************************************(IPAD AIR)********************************************************************/
+
+@media (max-width:1180px)
+{
+  .INICIO-COMPUTER{
+    width: 400px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background: rgba(14, 14, 90, 0.811);
+    clip-path: polygon(17% 5%, 83% 5%, 95% 20%, 95% 80%, 83% 95%, 17% 95%, 5% 80%, 5% 20%);
+  }
+
+  .INICIO-COMPUTER video{
+    width: 300px;
+    height: 632.88px;  
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    min-height: 90vh;
+    max-width: 100%;
+    border: none;
+  }
+
+  .Screen{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background: url(/assets/media/img/FUNDO-PIXEL.svg);
+    color: var(--black-color);
+    width: 300px;
+    height: 500px;
+    clip-path: polygon(10% 10%, 90% 10%, 100% 20%, 100% 80%, 90% 90%, 10% 90%, 0% 80%, 0% 20%);
+  }
+}
+
+/*****************************************************(IPAD PRO)********************************************************************/
+
+@media (max-width:1367px)
+{
+  .INICIO-COMPUTER{
+    width: 400px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    background: rgba(14, 14, 90, 0.811);
+    clip-path: polygon(17% 5%, 83% 5%, 95% 20%, 95% 80%, 83% 95%, 17% 95%, 5% 80%, 5% 20%);
+  }
+
+  .INICIO-COMPUTER video{
+    width: 300px;
+    height: 632.88px;  
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    min-height: 90vh;
+    max-width: 100%;
+    border: none;
+  }
+
+  .Screen{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background: url(/assets/media/img/FUNDO-PIXEL.svg);
+    color: var(--black-color);
+    width: 300px;
+    height: 500px;
+    clip-path: polygon(10% 10%, 90% 10%, 100% 20%, 100% 80%, 90% 90%, 10% 90%, 0% 80%, 0% 20%);
+  }
+}
